@@ -1,0 +1,26 @@
+#!/bin/sh -v
+
+#
+# An example hook script that is called after a successful
+# commit is made.
+#
+# To enable this hook, rename this file to "post-commit".
+#
+# steps:
+#
+# 1) run on remote:
+# git config receive.denycurrentbranch ignore
+#
+# 2) edit the paths in this file, command and push
+#
+# 3) run on remote
+# git reset --hard
+# cp /home/user/site/hooks/* /home/user/site/.git/hooks
+#
+# 4) test/validation
+#
+cd ..
+unset GIT_DIR
+pwd
+exec git reset --hard
+cp /home/user/site/hooks/* /home/user/site/.git/hooks
